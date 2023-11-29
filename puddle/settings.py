@@ -2,6 +2,13 @@ import os.path
 from pathlib import Path
 import django_heroku
 import  dj_database_url
+
+# settings.py
+
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -35,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'dashboard',
     'item',
+
 
 
 ]
@@ -125,3 +133,5 @@ django_heroku.settings(locals())
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

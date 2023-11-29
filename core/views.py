@@ -52,4 +52,15 @@ def logout_view(request):
     # Log the user out
     logout(request)
 
-    return redirect(('/login/'))
+    return redirect('/login')
+
+
+
+def checkout_success(request):
+    return render(request, 'checkout_success.html')
+
+
+def checkout_cancel(request):
+    return render(request, 'checkout_cancel.html')
+
+# Other views...
