@@ -5,40 +5,10 @@ from django.contrib import messages
 from .forms import NewItemForm, EditItemForm, CheckoutForm
 
 from .models import Category, Item, CartItem
+
 from django.shortcuts import render
-
-
-# @login_required
-# def add_to_cart(request, pk):
-#     item = get_object_or_404(Item, pk=pk)
-#     name = item.name
-#     price = item.price
-#
-#     # Check if the item is already in the cart
-#     cart_item, created = CartItem.objects.get_or_create(user=request.user, item=item, name=name, price=price)
-#
-#     if not created:
-#         cart_item.name = name
-#         cart_item.price = price
-#         cart_item.quantity += 1
-#         cart_item.save()
-#
-#     messages.success(request, f"{item.name} added to cart.")
-#     return redirect('item:items')  # Update with your URL name for the item listing
-#
-#
-# @login_required
-# def view_cart(request):
-#     cart_items = CartItem.objects.filter(user=request.user)
-#     return render(request, 'item/cart.html', {'cart_items': cart_items})
-
-
-# @login_required
-# def remove_from_cart(request, pk):
-#     cart_item = get_object_or_404(CartItem, pk=pk)
-#     cart_item.delete()
-#     messages.success(request, "Item removed from cart.")
-#     return redirect('item:view_cart')
+from django.http import HttpResponse
+import requests
 
 
 def items(request):
@@ -176,6 +146,9 @@ def checkout(request):
 
 def checkout_success(request):
     return render(request, 'item/checkout_success.html')
+
+    # response = requests.post(api_url, json=request, headers=headers)
+    # return HttpResponse("success")
 
 
 def checkout_cancel(request):

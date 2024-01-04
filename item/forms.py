@@ -46,6 +46,8 @@ class EditItemForm(forms.ModelForm):
                 'class': INPUT_CLASSES
             })
         }
+
+
 class CheckoutForm(forms.Form):
     # Add form fields you need for the checkout process
     # For example, name, address, payment method, etc.
